@@ -1,10 +1,10 @@
 package entity;
 
 public class Student {
-    private int id;        		// 学号
-    private String name;    	// 姓名
-    private String birDate; 	//生日
-    private String gender;     // 性别
+    private int id;        			// 学号
+    private String name;    		// 姓名
+    private String birDate; 		//生日
+    private String gender;     		// 性别
 
     public int getId() {
         return id;

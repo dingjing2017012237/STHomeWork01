@@ -19,15 +19,13 @@ public class APPUI {
 		@Override
 		public void doInitStudnet() {
 			// TODO Auto-generated method stub
-			
 		}
-
-		
     };
+    
     public void getMenu(){
-    	
     	//初始化
-    	
+    	//问题（8）
+    	//文档注释
     	System.out.println("请选择操作(1-2):");
     	psi.doInitStudent();
     	System.out.println("**********************************");
@@ -42,8 +40,15 @@ public class APPUI {
                 //实现学生管理
             	getStudentMenu();
                 break;
+                
             case 2:
+            	//退出
                 System.exit(0);
+                break;
+                
+            //问题（37）以default结尾
+            default:
+                System.out.println("default");
                 break;
         }
     }
@@ -58,7 +63,6 @@ public class APPUI {
         System.out.println("**		6、退出		**");
         System.out.println("**********************************");
         
-        
         int choice = in.nextInt();
         switch (choice){
             //新增人员
@@ -68,34 +72,44 @@ public class APPUI {
                 psi.doPrintAll();
                 getStudentMenu();
                 break;
-              //查询信息    
+                
+            //查询信息    
             case 2:
                 int id1 = new StudentUtil().getStudentsId("查找");
                 psi.doFindById(id1);
                 getStudentMenu();
                 break;
-                //删除人员
+                
+            //删除人员
             case 3:
                 int id = new StudentUtil().getStudentsId("删除");
                 psi.doDelStudentToStudentManager(id);
                 psi.doPrintAll();
                 getStudentMenu();
                 break;
-                //修改信息
+                
+            //修改信息
             case 4:
                 Student student2 =new StudentUtil().getStudent("修改");
                 psi.doUpdStudentToStudentManager(student2);
                 psi.doPrintAll();
                 getStudentMenu();
                 break;
-                //全部查询
+                
+            //全部查询
             case 5:
                 psi.doPrintAll();
                 getStudentMenu();
                 break;
-                //返回上一层
+               
+            //返回上一层
             case 6:
                 getMenu();
+                break;
+                
+            //问题（37）以default结尾
+            default:
+                System.out.println("default");
                 break;
         }
     }

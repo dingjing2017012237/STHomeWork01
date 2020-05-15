@@ -7,6 +7,7 @@ public class StudentDaoImpl implements StudentDao {
     // 学生从哪里获取的
 	StudentManagerDaoImpl rdi = new StudentManagerDaoImpl();
 	StudentManager[] table = rdi.getTable();
+	
     @Override
     public void doInitStudent() {
         Student p1 = new Student(101,"小黄","19990102","男");
@@ -15,27 +16,23 @@ public class StudentDaoImpl implements StudentDao {
         
         table[0].getStudents()[0] = p1;
         table[0].getStudents()[1] = p2;
-
         table[2].getStudents()[0] = p3;
-
     }
 
     /***
      * 2.新增
-     * @param person ： 来源自于PersonUtil
      * @return true 代表成功，false代表失败
      */
     @Override
     public boolean doAddStudentToStudentManager(Student student) {
         
         if(student.getGender().equals("男")){      
-            for (int i =0;i<2;i++){
-                for(int j=0;j<table[i].getStudents().length;j++){  
+            for (int i = 0;i<2;i++){
+                for (int j=0;j<table[i].getStudents().length;j++){  
                     if(table[i].getStudents()[j]==null){
                         table[i].getStudents()[j] = student;
                         return true;
                     }
-
                 }
             }
         }else if(student.getGender().equals("女")){ 
@@ -48,10 +45,32 @@ public class StudentDaoImpl implements StudentDao {
                 }
             }
         }
-        return false;
+        //问题（36）是否每个if-else if-else语句都有最后一个else以确保处理了全集
+        else{
+        	return false;
+        }
+		return false;
     }
 
     //3.删除人员
+    //问题（26）消除警告
+//    public void doDelStudentToStudentManager(int id){
+//        for (int i=0;i<table.length;i++){
+//            if (table[i].getStudents()!=null) {
+//                for (int j = 0; j < table[i].getStudents().length; j++) {
+//                    if (table[i].getStudents()[j].getId() == id) {
+//                    	table[i].getStudents()[j] = null;
+//                        System.out.println("删除成功");
+//                        break;
+//                    }else{
+//                        System.out.println("人员不存在");
+//                        break;
+//                    }
+//                }
+//            }
+//            break;
+//        }
+//    }
     public void doDelStudentToStudentManager(int id){
         for (int i=0;i<table.length;i++){
             if (table[i].getStudents()!=null) {
@@ -115,7 +134,7 @@ public class StudentDaoImpl implements StudentDao {
         
         for(int i=0;i<table.length;i++){
 
-            int num = 0;   //刚开始都没有人
+            int num = 0;   //刚开始没有人
 
             //打印人员信息
             if(table[i].getStudents()!=null){
@@ -135,8 +154,5 @@ public class StudentDaoImpl implements StudentDao {
             }
             System.out.println();
         }
-
     }
-
-
 }

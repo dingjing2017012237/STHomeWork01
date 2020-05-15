@@ -6,7 +6,6 @@ import entity.StudentManager;
 public class StudentManagerDaoImpl implements StudentManagerDao {
 
 	StudentManager[] table = new StudentManager[4];
-
     
     @Override
     public StudentManager[] getTable() {

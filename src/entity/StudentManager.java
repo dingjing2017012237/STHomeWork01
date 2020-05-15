@@ -3,9 +3,9 @@ package entity;
 import entity.Student;
 
 public class StudentManager {
-    private int rid;        // 学生编号
-    private Student[] students;// 学生人数
-    private String type;    // 类型
+    private int rid;        	// 学生编号
+    private Student[] students;	// 学生人数
+    private String type;   	 	// 类型
 
     public int getRid() {
         return rid;
